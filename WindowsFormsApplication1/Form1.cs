@@ -20,6 +20,9 @@ namespace WindowsFormsApplication1
         #region ctor
         public Form1()
         {
+#if DEBUG
+            Console.WriteLine("debugging");
+#endif
             InitializeComponent();
             this.Text = "osu!Hex2RGB";
             this.MaximizeBox = false;
@@ -31,10 +34,10 @@ namespace WindowsFormsApplication1
 
             this.Load += (s, e) => tLoad(this);
         }
-        #endregion
+#endregion
 
         // I might as well remove this, we don't even have a topbar anymore.
-        #region var
+#region var
         [DllImport("dwmapi.dll", PreserveSig = true)]
         private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
@@ -49,8 +52,8 @@ namespace WindowsFormsApplication1
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
-        #endregion
-        #region Handle
+#endregion
+#region Handle
         protected override void OnHandleCreated(EventArgs e)
         {
             base.OnHandleCreated(e);
@@ -69,9 +72,9 @@ namespace WindowsFormsApplication1
             {
             }
         }
-        #endregion
+#endregion
 
-        #region Convert button
+#region Convert button
         private void button1_Click_1(object sender, EventArgs e)
         {
             try
@@ -109,8 +112,8 @@ namespace WindowsFormsApplication1
                 richTextBox1.Text = "error";
             }
         }
-        #endregion
-        #region Load
+#endregion
+#region Load
         private void tLoad(Control parent)
         {
             parent.BackColor = Colour.FromArgb(30, 30, 30);
@@ -150,9 +153,9 @@ namespace WindowsFormsApplication1
             }
             Console.WriteLine("dark theme success");
         }
-        #endregion
+#endregion
 
-        #region Handlers
+#region Handlers
         private void Dwn(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -165,6 +168,6 @@ namespace WindowsFormsApplication1
         {
             this.Close();
         }
-        #endregion
+#endregion
     }
 }

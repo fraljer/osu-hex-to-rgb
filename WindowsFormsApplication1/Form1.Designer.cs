@@ -82,6 +82,7 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Dwn);
             // 
             // button2
             // 
