@@ -16,6 +16,9 @@ namespace WindowsFormsApplication1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+#if DEBUG
+            Console.WriteLine("debugging");
+#endif
         }
     }
 }
